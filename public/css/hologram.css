@@ -1,0 +1,946 @@
+:root {
+    --hud-bg: #02090b;
+    --hud-panel: rgba(4, 24, 27, 0.88);
+    --hud-panel-strong: rgba(5, 34, 36, 0.96);
+    --hud-green: #42ffb5;
+    --hud-cyan: #36e6ff;
+    --hud-text: #dcfff5;
+    --hud-muted: #83b5aa;
+    --hud-line: rgba(66, 255, 181, 0.28);
+    --hud-danger: #ff6b86;
+    --hud-warning: #ffd166;
+}
+
+body.hologram-theme {
+    color: var(--hud-text);
+    background:
+        radial-gradient(circle at 78% 12%, rgba(0, 255, 170, 0.11), transparent 30%),
+        radial-gradient(circle at 12% 82%, rgba(0, 193, 255, 0.1), transparent 32%),
+        linear-gradient(145deg, #02090b 0%, #041416 52%, #010708 100%);
+    color-scheme: dark;
+    font-family: "Rajdhani", "Source Sans Pro", sans-serif;
+    font-weight: 500;
+}
+
+body.hologram-theme::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(66, 255, 181, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(66, 255, 181, 0.045) 1px, transparent 1px);
+    background-size: 42px 42px;
+}
+
+body.hologram-theme::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.055;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.5) 0,
+        rgba(255, 255, 255, 0.5) 1px,
+        transparent 1px,
+        transparent 4px
+    );
+}
+
+.hologram-theme .wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.hologram-theme h1,
+.hologram-theme h2,
+.hologram-theme h3,
+.hologram-theme h4,
+.hologram-theme h5,
+.hologram-theme h6,
+.hologram-theme .card-title {
+    font-family: "Orbitron", "Rajdhani", sans-serif;
+    letter-spacing: 0.055em;
+}
+
+.hologram-theme a {
+    color: var(--hud-green);
+}
+
+.hologram-theme a:hover {
+    color: var(--hud-cyan);
+    text-decoration: none;
+}
+
+.hologram-theme ::selection {
+    color: #02110d;
+    background: var(--hud-green);
+}
+
+.hologram-theme :focus-visible {
+    outline: 2px solid var(--hud-cyan);
+    outline-offset: 3px;
+}
+
+.hologram-theme .main-sidebar {
+    background:
+        linear-gradient(180deg, rgba(5, 29, 31, 0.98), rgba(2, 13, 15, 0.98)),
+        var(--hud-bg);
+    border-right: 1px solid rgba(66, 255, 181, 0.38);
+    box-shadow: 8px 0 32px rgba(0, 0, 0, 0.34), inset -1px 0 18px rgba(54, 230, 255, 0.05);
+}
+
+.hologram-theme .main-sidebar .brand-link {
+    height: 64px;
+    padding: 0 18px;
+    background: rgba(4, 31, 33, 0.82);
+    border-bottom: 1px solid var(--hud-line);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.28);
+}
+
+.hologram-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--hud-text) !important;
+    text-decoration: none !important;
+}
+
+.hologram-brand .brand-mark {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    color: var(--hud-green);
+    font-size: 18px;
+    border: 1px solid var(--hud-green);
+    background: rgba(66, 255, 181, 0.08);
+    box-shadow: 0 0 16px rgba(66, 255, 181, 0.24), inset 0 0 12px rgba(66, 255, 181, 0.08);
+    clip-path: polygon(18% 0, 100% 0, 100% 82%, 82% 100%, 0 100%, 0 18%);
+}
+
+.hologram-brand .brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05;
+    font-family: "Orbitron", sans-serif;
+}
+
+.hologram-brand .brand-text b {
+    color: var(--hud-green);
+    font-size: 20px;
+    letter-spacing: 0.18em;
+    text-shadow: 0 0 14px rgba(66, 255, 181, 0.5);
+}
+
+.hologram-brand .brand-text small {
+    margin-top: 5px;
+    color: var(--hud-muted);
+    font-size: 8px;
+    letter-spacing: 0.34em;
+}
+
+.hologram-theme .sidebar-dark-primary .sidebar a {
+    color: #a5d4c8;
+}
+
+.hologram-theme .nav-sidebar .nav-link {
+    position: relative;
+    margin: 5px 10px;
+    padding: 12px 14px;
+    color: #a5d4c8;
+    border: 1px solid transparent;
+    border-left: 2px solid transparent;
+    border-radius: 2px 10px 2px 10px;
+    transition: color 160ms ease, background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.hologram-theme .nav-sidebar .nav-link p {
+    margin: 0;
+    font-family: "Orbitron", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+}
+
+.hologram-theme .nav-sidebar .nav-link .nav-icon {
+    width: 24px;
+    margin-right: 10px;
+    color: var(--hud-cyan);
+    font-size: 15px;
+    text-align: center;
+}
+
+.hologram-theme .nav-sidebar .nav-link:hover {
+    color: var(--hud-text);
+    background: rgba(66, 255, 181, 0.08);
+    border-color: rgba(66, 255, 181, 0.2);
+    border-left-color: var(--hud-green);
+    box-shadow: inset 0 0 18px rgba(66, 255, 181, 0.04), 0 0 14px rgba(66, 255, 181, 0.06);
+}
+
+.hologram-theme .nav-sidebar .nav-link.active {
+    color: var(--hud-text);
+    background: linear-gradient(90deg, rgba(66, 255, 181, 0.2), rgba(54, 230, 255, 0.06));
+    border-color: rgba(66, 255, 181, 0.36);
+    border-left-color: var(--hud-green);
+    box-shadow: 0 0 18px rgba(66, 255, 181, 0.11), inset 0 0 18px rgba(66, 255, 181, 0.05);
+}
+
+.hologram-theme .main-header.navbar {
+    min-height: 64px;
+    padding: 0 22px;
+    background: rgba(3, 20, 22, 0.94);
+    border-bottom: 1px solid rgba(66, 255, 181, 0.34);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(16px);
+}
+
+.hologram-theme .main-header .nav-link {
+    color: var(--hud-muted);
+}
+
+.hologram-theme .main-header .nav-link:hover {
+    color: var(--hud-green);
+    background: rgba(66, 255, 181, 0.06);
+}
+
+.hud-system {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-left: 12px;
+    color: var(--hud-muted);
+    font-family: "Orbitron", sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+}
+
+.hud-status-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--hud-green);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--hud-green);
+    animation: hudPulse 2.4s ease-in-out infinite;
+}
+
+.hud-user {
+    display: flex;
+    flex-direction: column;
+    padding: 7px 14px;
+    line-height: 1.1;
+    border-right: 1px solid var(--hud-line);
+}
+
+.hud-user span {
+    max-width: 180px;
+    overflow: hidden;
+    color: var(--hud-text);
+    font-size: 13px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.hud-user small {
+    margin-top: 4px;
+    color: var(--hud-green);
+    font-family: "Orbitron", sans-serif;
+    font-size: 8px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.hologram-theme .content-wrapper {
+    background: transparent;
+}
+
+.hologram-theme .content-wrapper > .container-fluid {
+    padding-top: 26px;
+    padding-bottom: 26px;
+}
+
+.hologram-theme .card {
+    position: relative;
+    isolation: isolate;
+    background:
+        linear-gradient(135deg, rgba(7, 37, 39, 0.9), rgba(2, 17, 20, 0.92)),
+        var(--hud-panel);
+    border: 1px solid rgba(66, 255, 181, 0.28);
+    border-radius: 4px 16px 4px 16px;
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28), inset 0 0 26px rgba(66, 255, 181, 0.025);
+    backdrop-filter: blur(12px);
+}
+
+.hologram-theme .card::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 18px;
+    z-index: 2;
+    width: 72px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--hud-green), var(--hud-cyan));
+    box-shadow: 0 0 14px rgba(66, 255, 181, 0.6);
+    pointer-events: none;
+}
+
+.hologram-theme .card::after {
+    content: "";
+    position: absolute;
+    right: -1px;
+    bottom: 16px;
+    z-index: 2;
+    width: 2px;
+    height: 42px;
+    background: linear-gradient(180deg, transparent, var(--hud-cyan));
+    box-shadow: 0 0 12px rgba(54, 230, 255, 0.5);
+    pointer-events: none;
+}
+
+.hologram-theme .card-header,
+.hologram-theme .card-footer {
+    background: rgba(4, 29, 31, 0.66);
+    border-color: var(--hud-line);
+}
+
+.hologram-theme .card-header h1,
+.hologram-theme .card-header h2,
+.hologram-theme .card-header h3,
+.hologram-theme .card-header h4,
+.hologram-theme .card-header h5,
+.hologram-theme .card-header h6 {
+    color: var(--hud-text);
+}
+
+.hologram-theme .card-body h4 {
+    color: var(--hud-green);
+    font-size: 18px;
+    text-transform: uppercase;
+    text-shadow: 0 0 14px rgba(66, 255, 181, 0.22);
+}
+
+.hologram-theme .bg-primary {
+    background: linear-gradient(135deg, #087f72, #035b56) !important;
+    box-shadow: 0 0 24px rgba(66, 255, 181, 0.12);
+}
+
+.hologram-theme .bg-success {
+    background: linear-gradient(135deg, #126c50, #064d3c) !important;
+    box-shadow: 0 0 24px rgba(66, 255, 181, 0.12);
+}
+
+.hologram-theme .bg-info {
+    background: linear-gradient(135deg, #09677a, #064552) !important;
+    box-shadow: 0 0 24px rgba(54, 230, 255, 0.13);
+}
+
+.hologram-theme .bg-warning {
+    color: #102014 !important;
+    background: linear-gradient(135deg, #e4bd55, #a88424) !important;
+    box-shadow: 0 0 24px rgba(255, 209, 102, 0.12);
+}
+
+.hologram-theme .bg-dark {
+    background: linear-gradient(135deg, #08272a, #031012) !important;
+}
+
+.hologram-theme .bg-light {
+    background: rgba(66, 255, 181, 0.08) !important;
+}
+
+.hologram-theme .form-control,
+.hologram-theme select.form-control,
+.hologram-theme .input-group-text {
+    color: var(--hud-text);
+    background-color: rgba(1, 13, 15, 0.78);
+    border: 1px solid rgba(66, 255, 181, 0.24);
+    border-radius: 3px 9px 3px 9px;
+    box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.2);
+    transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.hologram-theme .form-control::placeholder {
+    color: #628e85;
+}
+
+.hologram-theme .form-control:focus,
+.hologram-theme select.form-control:focus {
+    color: var(--hud-text);
+    background-color: rgba(2, 21, 23, 0.94);
+    border-color: var(--hud-green);
+    box-shadow: 0 0 0 3px rgba(66, 255, 181, 0.1), 0 0 20px rgba(66, 255, 181, 0.12);
+}
+
+.hologram-theme .form-control.is-invalid,
+.hologram-theme .was-validated .form-control:invalid {
+    border-color: var(--hud-danger);
+}
+
+.hologram-theme .invalid-feedback {
+    color: #ff9caf;
+}
+
+.hologram-theme .input-group-text {
+    color: var(--hud-green);
+    background: rgba(5, 38, 39, 0.9);
+}
+
+.hologram-theme label b {
+    color: #bce9dd;
+    font-weight: 600;
+    letter-spacing: 0.035em;
+}
+
+.hologram-theme .btn {
+    position: relative;
+    border-radius: 3px 9px 3px 9px;
+    font-family: "Orbitron", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease, border-color 150ms ease;
+}
+
+.hologram-theme .btn:hover {
+    transform: translateY(-1px);
+}
+
+.hologram-theme .btn-primary {
+    color: #02110c;
+    background: linear-gradient(135deg, #55ffc0, #26dca4);
+    border-color: var(--hud-green);
+    box-shadow: 0 0 18px rgba(66, 255, 181, 0.2);
+}
+
+.hologram-theme .btn-primary:hover,
+.hologram-theme .btn-primary:focus {
+    color: #02110c;
+    background: linear-gradient(135deg, #82ffd2, #3cecba);
+    border-color: #a3ffdd;
+    box-shadow: 0 0 28px rgba(66, 255, 181, 0.32);
+}
+
+.hologram-theme .btn-success {
+    color: #02110c;
+    background: linear-gradient(135deg, #42ffb5, #20c990);
+    border-color: var(--hud-green);
+}
+
+.hologram-theme .btn-info {
+    color: #021117;
+    background: linear-gradient(135deg, #5cecff, #26bfd8);
+    border-color: var(--hud-cyan);
+}
+
+.hologram-theme .btn-secondary {
+    color: var(--hud-text);
+    background: rgba(5, 35, 37, 0.86);
+    border-color: rgba(66, 255, 181, 0.32);
+}
+
+.hologram-theme .btn-secondary:hover {
+    color: var(--hud-text);
+    background: rgba(8, 52, 53, 0.94);
+    border-color: var(--hud-green);
+}
+
+.hologram-theme .btn-danger {
+    color: #fff1f4;
+    background: linear-gradient(135deg, #b73852, #81263a);
+    border-color: var(--hud-danger);
+    box-shadow: 0 0 16px rgba(255, 107, 134, 0.12);
+}
+
+.hologram-theme .table {
+    color: #bfe5db;
+    border-color: var(--hud-line);
+}
+
+.hologram-theme .table th {
+    color: var(--hud-green);
+    background: rgba(4, 31, 33, 0.72);
+    border-color: var(--hud-line) !important;
+    font-family: "Orbitron", sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.hologram-theme .table td {
+    border-color: rgba(66, 255, 181, 0.12);
+    vertical-align: middle;
+}
+
+.hologram-theme .table tr:hover td {
+    background: rgba(66, 255, 181, 0.035);
+}
+
+.hologram-theme .card-body > table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.hologram-theme .badge {
+    font-family: "Orbitron", sans-serif;
+    font-size: 8px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.hologram-theme .badge-primary {
+    color: #03130e;
+    background: var(--hud-green);
+    box-shadow: 0 0 12px rgba(66, 255, 181, 0.24);
+}
+
+.hologram-theme .badge-info {
+    color: #031217;
+    background: var(--hud-cyan);
+    box-shadow: 0 0 12px rgba(54, 230, 255, 0.2);
+}
+
+.hologram-theme .badge-success {
+    color: #03130e;
+    background: var(--hud-green);
+}
+
+.hologram-theme .alert {
+    color: var(--hud-text);
+    background: rgba(4, 31, 33, 0.94);
+    border: 1px solid var(--hud-line);
+    border-left: 3px solid var(--hud-green);
+    border-radius: 3px 10px 3px 10px;
+}
+
+.hologram-theme .alert-success {
+    border-left-color: var(--hud-green);
+    box-shadow: 0 0 18px rgba(66, 255, 181, 0.08);
+}
+
+.hologram-theme .alert-danger {
+    border-left-color: var(--hud-danger);
+}
+
+.hologram-theme .text-muted {
+    color: var(--hud-muted) !important;
+}
+
+.hologram-theme .text-success {
+    color: var(--hud-green) !important;
+}
+
+.hologram-theme .text-danger {
+    color: var(--hud-danger) !important;
+}
+
+.hologram-theme hr {
+    border-color: var(--hud-line);
+}
+
+.hologram-theme .img-thumbnail {
+    background: rgba(2, 16, 18, 0.8);
+    border-color: var(--hud-line);
+}
+
+.hologram-theme .struk-card {
+    background: linear-gradient(145deg, rgba(6, 37, 39, 0.94), rgba(2, 16, 19, 0.96));
+    border: 1px solid rgba(66, 255, 181, 0.3);
+    border-left: 3px solid var(--hud-green);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28), 0 0 20px rgba(66, 255, 181, 0.045);
+}
+
+.hologram-theme .struk-card .card-header {
+    background: linear-gradient(90deg, rgba(7, 48, 46, 0.96), rgba(3, 25, 28, 0.96));
+    border-bottom-color: var(--hud-line);
+}
+
+.hologram-theme .struk-card .card-footer {
+    background: rgba(3, 24, 26, 0.9);
+    border-color: var(--hud-line);
+}
+
+.hologram-theme .produk-card {
+    background: linear-gradient(145deg, rgba(7, 38, 40, 0.94), rgba(2, 17, 19, 0.96));
+    border: 1px solid rgba(54, 230, 255, 0.24);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.24);
+}
+
+.hologram-theme .produk-card:hover {
+    border-color: var(--hud-green);
+    box-shadow: 0 0 26px rgba(66, 255, 181, 0.14);
+}
+
+.hologram-theme .main-footer {
+    color: var(--hud-muted);
+    background: rgba(2, 15, 17, 0.92);
+    border-top: 1px solid var(--hud-line);
+    font-family: "Orbitron", sans-serif;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+}
+
+.hologram-theme .main-footer a {
+    color: var(--hud-green);
+}
+
+.hologram-theme * {
+    scrollbar-color: rgba(66, 255, 181, 0.42) rgba(2, 15, 17, 0.8);
+    scrollbar-width: thin;
+}
+
+.hologram-login {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 72px 7vw;
+    overflow: hidden;
+    background: var(--hud-bg);
+    color-scheme: dark;
+    font-family: "Rajdhani", "Source Sans Pro", sans-serif;
+}
+
+.hologram-login::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(90deg, rgba(1, 9, 11, 0.98) 0%, rgba(1, 12, 14, 0.88) 34%, rgba(1, 12, 14, 0.32) 62%, rgba(1, 9, 11, 0.12) 100%),
+        linear-gradient(0deg, rgba(1, 9, 11, 0.82), transparent 42%),
+        url("/images/hologram-login.jpg");
+    background-position: center;
+    background-size: cover;
+    transform: scale(1.015);
+}
+
+.hologram-login .login-box {
+    position: relative;
+    z-index: 2;
+    width: 420px;
+    max-width: 100%;
+    margin: 0;
+}
+
+.hologram-login .login-box .card {
+    position: relative;
+    background: linear-gradient(145deg, rgba(4, 35, 37, 0.9), rgba(1, 15, 18, 0.94));
+    border: 1px solid rgba(66, 255, 181, 0.5);
+    border-top-color: var(--hud-green);
+    border-radius: 4px 22px 4px 22px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5), 0 0 34px rgba(66, 255, 181, 0.1), inset 0 0 34px rgba(66, 255, 181, 0.025);
+    backdrop-filter: blur(18px);
+}
+
+.hologram-login .login-box .card::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 28px;
+    width: 110px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--hud-green), var(--hud-cyan));
+    box-shadow: 0 0 20px rgba(66, 255, 181, 0.7);
+}
+
+.hologram-login .login-box .card::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 34px;
+    height: 34px;
+    border-right: 2px solid var(--hud-cyan);
+    border-bottom: 2px solid var(--hud-cyan);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.hologram-login .card-header {
+    padding: 28px 24px 20px;
+    background: transparent;
+    border-bottom: 1px solid var(--hud-line);
+}
+
+.hologram-login .card-body {
+    padding: 26px;
+}
+
+.hologram-login .hologram-brand {
+    justify-content: center;
+}
+
+.hologram-login .hologram-brand .brand-mark {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+}
+
+.hologram-login .hologram-brand .brand-text b {
+    font-size: 29px;
+}
+
+.hologram-login .hologram-brand .brand-text small {
+    font-size: 9px;
+}
+
+.hologram-login .login-box-msg {
+    margin: 20px 0 22px;
+    color: var(--hud-muted);
+    font-family: "Orbitron", sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.hologram-login .input-group {
+    margin-bottom: 18px !important;
+}
+
+.hologram-login .form-control {
+    min-height: 48px;
+    color: var(--hud-text);
+    background: rgba(1, 13, 15, 0.74);
+    border: 1px solid rgba(66, 255, 181, 0.28);
+    border-radius: 3px 0 0 3px;
+}
+
+.hologram-login .form-control:focus {
+    background: rgba(2, 22, 24, 0.94);
+    border-color: var(--hud-green);
+    box-shadow: 0 0 0 3px rgba(66, 255, 181, 0.09), 0 0 24px rgba(66, 255, 181, 0.1);
+}
+
+.hologram-login .input-group-text {
+    min-width: 48px;
+    justify-content: center;
+    color: var(--hud-green);
+    background: rgba(5, 39, 40, 0.9);
+    border: 1px solid rgba(66, 255, 181, 0.28);
+    border-left: 0;
+    border-radius: 0 9px 9px 0;
+}
+
+.hologram-login .btn-primary {
+    min-height: 48px;
+    margin-top: 8px;
+    color: #02110c;
+    background: linear-gradient(135deg, #62ffc5, #25daa5);
+    border: 1px solid var(--hud-green);
+    border-radius: 3px 12px 3px 12px;
+    box-shadow: 0 0 24px rgba(66, 255, 181, 0.24);
+    font-family: "Orbitron", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.hologram-login .btn-primary:hover {
+    color: #02110c;
+    background: linear-gradient(135deg, #8affd7, #41efbd);
+    box-shadow: 0 0 34px rgba(66, 255, 181, 0.36);
+}
+
+.hologram-login .alert-danger {
+    color: #ffd8e0;
+    background: rgba(69, 15, 28, 0.76);
+    border-color: rgba(255, 107, 134, 0.5);
+}
+
+.login-hud {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.login-hud::before {
+    content: "";
+    position: absolute;
+    inset: 24px;
+    background:
+        linear-gradient(var(--hud-green), var(--hud-green)) left top / 54px 1px no-repeat,
+        linear-gradient(var(--hud-green), var(--hud-green)) left top / 1px 54px no-repeat,
+        linear-gradient(var(--hud-cyan), var(--hud-cyan)) right top / 54px 1px no-repeat,
+        linear-gradient(var(--hud-cyan), var(--hud-cyan)) right top / 1px 54px no-repeat,
+        linear-gradient(var(--hud-cyan), var(--hud-cyan)) left bottom / 54px 1px no-repeat,
+        linear-gradient(var(--hud-cyan), var(--hud-cyan)) left bottom / 1px 54px no-repeat,
+        linear-gradient(var(--hud-green), var(--hud-green)) right bottom / 54px 1px no-repeat,
+        linear-gradient(var(--hud-green), var(--hud-green)) right bottom / 1px 54px no-repeat;
+    opacity: 0.72;
+}
+
+.login-hud .hud-status {
+    position: absolute;
+    top: 38px;
+    left: 42px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--hud-green);
+    font-family: "Orbitron", sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+}
+
+.login-hud .hud-code {
+    position: absolute;
+    right: 42px;
+    bottom: 38px;
+    color: rgba(172, 255, 226, 0.66);
+    font-family: "Orbitron", sans-serif;
+    font-size: 8px;
+    letter-spacing: 0.2em;
+}
+
+.login-hud .hud-scan {
+    position: absolute;
+    top: -20%;
+    left: 56%;
+    width: 1px;
+    height: 36%;
+    background: linear-gradient(transparent, rgba(66, 255, 181, 0.8), transparent);
+    box-shadow: 0 0 18px rgba(66, 255, 181, 0.5);
+    animation: hudScan 7s linear infinite;
+}
+
+.login-foot {
+    margin-top: 20px;
+    color: rgba(131, 181, 170, 0.72);
+    font-family: "Orbitron", sans-serif;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+@keyframes hudPulse {
+    0%, 100% { opacity: 0.55; transform: scale(0.85); }
+    50% { opacity: 1; transform: scale(1.08); }
+}
+
+@keyframes hudScan {
+    from { transform: translateY(0); }
+    to { transform: translateY(390vh); }
+}
+
+@media (max-width: 991.98px) {
+    .hud-system {
+        display: none !important;
+    }
+
+    .hud-user {
+        border-right: 0;
+        padding-right: 8px;
+    }
+
+    .hologram-login::before {
+        background-image:
+            linear-gradient(90deg, rgba(1, 9, 11, 0.94), rgba(1, 12, 14, 0.68)),
+            url("/images/hologram-login.jpg");
+        background-position: 62% center;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hologram-login {
+        justify-content: center;
+        padding: 64px 22px;
+    }
+
+    .hologram-login::before {
+        background-image:
+            linear-gradient(rgba(1, 9, 11, 0.82), rgba(1, 12, 14, 0.92)),
+            url("/images/hologram-login.jpg");
+        background-position: 58% center;
+    }
+
+    .login-hud::before {
+        inset: 14px;
+    }
+
+    .login-hud .hud-status {
+        top: 26px;
+        left: 28px;
+        font-size: 8px;
+    }
+
+    .login-hud .hud-code {
+        right: 28px;
+        bottom: 26px;
+        font-size: 7px;
+    }
+
+    .hologram-login .card-body {
+        padding: 22px;
+    }
+
+    .hud-user span {
+        max-width: 110px;
+    }
+
+    .hologram-theme .main-header.navbar {
+        padding: 0 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hud-status-dot,
+    .login-hud .hud-scan {
+        animation: none;
+    }
+
+    .hologram-theme .btn,
+    .hologram-theme .nav-link,
+    .hologram-theme .form-control {
+        transition: none;
+    }
+}
+
+@media print {
+    body.hologram-theme,
+    body.hologram-theme .content-wrapper {
+        color: #000 !important;
+        background: #fff !important;
+    }
+
+    body.hologram-theme::before,
+    body.hologram-theme::after,
+    .hologram-theme .main-sidebar,
+    .hologram-theme .main-header,
+    .hologram-theme .main-footer,
+    .hologram-theme .control-sidebar {
+        display: none !important;
+    }
+
+    .hologram-theme .content-wrapper {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .hologram-theme .struk-print,
+    .hologram-theme .struk-print .card-header,
+    .hologram-theme .struk-print .card-body,
+    .hologram-theme .struk-print table,
+    .hologram-theme .struk-print th,
+    .hologram-theme .struk-print td {
+        color: #000 !important;
+        background: #fff !important;
+        border-color: #bbb !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+}
